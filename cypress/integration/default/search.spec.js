@@ -36,9 +36,9 @@ describe('Search', function() {
         cy.get('.phpdocumentor-sidebar .phpdocumentor-search input[type="search"]')
             .type('pizza');
 
-        let searchResults = cy.get('.phpdocumentor-search-results');
-        searchResults.get('ul li').contains('Pizza').click();
-        cy.url().should('include', '/namespaces/marios-pizza.html');
+        cy.get('.phpdocumentor-search-results > ul li a')
+            .contains('Pizza').click();
+        cy.url().should('include', '/default/namespaces/marios-pizza.html');
     });
 
     it('Closes the results when clearing the search field', function() {
